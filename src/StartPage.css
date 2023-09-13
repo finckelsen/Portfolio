@@ -1,0 +1,17 @@
+.container {
+  height: 100vw;
+  background-color: #151515;
+  font-family: "Poppins";
+  font-size: 35px;
+}
+
+.textWriter{
+  margin-top: 15vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  color: #FF5A5A;
+}
+
+.staticText{
+  color: white;
+}
