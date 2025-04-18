@@ -1,0 +1,10 @@
+.windowsTaskbarContainer{
+  height: 60px;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  background: linear-gradient(to top, #2a6db9, #529ae7);
+  display: flex;
+
+}

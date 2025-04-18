@@ -1,0 +1,45 @@
+.popup-container{
+  width: 90vw;
+  height: 86vh;
+  position: absolute;
+  z-index: 5;
+  left: 5%;
+  top: 5%;
+  background-color: aliceblue;
+  border-radius: 5px;
+}
+
+.popup-bar{
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to bottom, #0a64ad 0%, #3a9bdc 50%, #61b4e4 100%);
+}
+
+.popup-bar h2{
+  position: absolute;
+  margin-top: 0;
+  padding-top: 25px;
+  color: white;
+  left: 40px;
+}
+
+.close-button{
+  position: absolute;
+  margin-top: 0;
+  padding: 20px;
+  margin-top: 10px;
+  color: white;
+  background-color: rgb(176, 122, 122);
+  right: 10px;
+  border-radius: 5px;
+  border: 10px whea;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.close-button:hover{
+
+  background-color: rgb(134, 48, 48);
+
+
+}

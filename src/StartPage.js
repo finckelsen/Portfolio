@@ -1,33 +1,42 @@
-import './StartPage.css';
-import Typewriter from 'typewriter-effect';
-import "@fontsource/poppins"; // Defaults to weight 400
+import { Canvas, useFrame } from '@react-three/fiber'
+import { OrbitControls, useGLTF, Environment, Text } from '@react-three/drei'
+import { useRef, useState } from 'react'
+import * as THREE from 'three'
+import './StartPage.css'
+import CvLookup from './CvLookup'
+import CvText from './CvText'
+import ComputerText from './ComputerText'
+import ComputerScreen from './ComputerScreen'
 
-function StartPage() {
-  return (
-    <div className='container'>
-      <div className='textWriter'>
-        <Typewriter
-          onInit={(typewriter) => {
-            typewriter.typeString("I'm the best at")
-              .pauseFor(2500)
-              .deleteAll()
-            typewriter.typeString("I'm trying to be the best at")
-              .pauseFor(2500)
-              .deleteAll()   
-            typewriter.typeString("I'm okey at")
-              .pauseFor(50)
-              .deleteAll()
-            typewriter.typeString("I'm")     
-            .start();
-          }}
-        />
-        <div className='staticText'>
-          creating technical solutions
-        </div>
-      </div>
-    </div>
-    
-  );
+
+function MyModel() {
+  const gltf = useGLTF('/models/rummet.glb')
+  return <primitive object={gltf.scene} />
 }
 
-export default StartPage;
+
+function StartPage() {
+  const controlsRef = useRef()
+  const [showCv, setShowCv] = useState(false) 
+  const [showComputer, setShowComputer] = useState(false) 
+
+  return (
+    <>
+    {showCv && <CvLookup setShowCv={setShowCv}/>}
+    {showComputer && <ComputerScreen setShowComputer={setShowComputer}/>}
+
+    <Canvas>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} />
+
+      <MyModel />
+      <CvText controlsRef={controlsRef} setShowCv={setShowCv} />
+      <ComputerText controlsRef={controlsRef} setShowComputer={setShowComputer}/>
+      <OrbitControls ref={controlsRef} />
+      <Environment preset="city" />
+    </Canvas>
+    </>
+  )
+}
+
+export default StartPage

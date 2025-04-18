@@ -1,17 +1,14 @@
-.container {
+.container-renderpage {
 
   background-color: #151515;
   font-family: "Poppins";
   font-size: 35px;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  position: fixed;
 
 }
-
-.video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; 
-  height: 100%;
-  object-fit: cover;
+.animation {
+  margin: auto;
+  padding-top: 20vw;
 }
