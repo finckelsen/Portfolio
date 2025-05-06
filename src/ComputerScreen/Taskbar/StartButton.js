@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function StartButton() {
+function StartButton({ setWindowOpen }) {
   const [isPressed, setIsPressed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -10,22 +10,23 @@ function StartButton() {
     return '/start-button.png';
   };
 
+  const handleClick = () => {
+    setIsPressed(prev => !prev);          // Toggle pressed state
+    setWindowOpen(prev => !prev);         // Toggle window visibility in parent
+  };
+
   return (
     <button
-
-      onMouseDown={() => setIsPressed(true)}
-      onMouseUp={() => setIsPressed(false)}
+      onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setIsPressed(false);
-      }}
-      style={{margin:'0px', padding:'0', background:'none', border:'none'}}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{ margin: '0px', padding: '0', background: 'none', border: 'none' }}
     >
-      <img src={getImageSrc()} alt="Start" style={{ height: '60px',}} />
-
+      <img src={getImageSrc()} alt="Start" style={{ height: '60px' }} />
     </button>
   );
 }
+
+
 
 export default StartButton;

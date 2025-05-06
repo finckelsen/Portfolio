@@ -3,8 +3,10 @@ import './ComputerScreenPopup.css'
 import Experience from './PopupContent/Experience';
 import Projects from './PopupContent/Projects';
 import RickRoll from './PopupContent/RickRoll';
+import Folders from './PopupContent/Folders';
+import Notes from './PopupContent/Notes';
 
-function getContentByTitle(title) {
+function getContentByTitle(title, setPopupTitle) {
   switch (title) {
     case 'My experience':
       return <Experience/>;
@@ -12,13 +14,17 @@ function getContentByTitle(title) {
       return <Projects/>;
     case 'Rick Roll':
       return <RickRoll/>;
+    case 'Notes':
+        return <Notes/>;
+    case 'Folders':
+      return <Folders setPopupTitle={setPopupTitle}/>;
     default:
       return <p>Standardinnehåll</p>;
   }
 }
 
 
-function ComputerScreenPopup({setOpen, popupTitle}) {
+function ComputerScreenPopup({setOpen, popupTitle, setPopupTitle}) {
   return (
     <div className="popup-container">
       <div className='popup-bar'>
@@ -27,9 +33,9 @@ function ComputerScreenPopup({setOpen, popupTitle}) {
           x
         </div>
       </div>
-      <div className='popup-content'>
-        {getContentByTitle(popupTitle)}
-      </div>
+      <>
+        {getContentByTitle(popupTitle, setPopupTitle)}
+      </>
     </div>
   )
 }

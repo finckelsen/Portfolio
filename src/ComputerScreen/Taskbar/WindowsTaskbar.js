@@ -1,6 +1,8 @@
 import React from 'react';
 import './WindowsTaskbar.css'
 import StartButton from './StartButton';
+import InfoButton from './InfoButton';
+
 
 function getPopupContent(title) {
   switch (title) {
@@ -14,11 +16,12 @@ function getPopupContent(title) {
         image: 'info.png',
         text: 'This is a Windows XP-inspired interface!',
       };
-    case 'Games':
+    case 'Notes':
       return {
-        image: 'games.png',
-        text: 'Launching Solitaire... 🃏',
+        image: 'notes.png',
+        text: 'My notes',
       };
+    
     default:
       return {
         image: 'folder.png',
@@ -27,16 +30,17 @@ function getPopupContent(title) {
   }
 }
 
-function WindowsTaskbar({open, popupTitle}) {
+function WindowsTaskbar({open, popupTitle, setWindowOpen, setOpen, setPopupTitle}) {
   console.log(popupTitle)
   const { image, text } = getPopupContent(popupTitle);
   return (
       <div className='windowsTaskbarContainer'>
-        <StartButton/>
-        {open && <div style={{width:'300px', height:'55px',  backgroundColor: 'rgb(45, 82, 180)', marginLeft:'20px', marginTop:'2px', borderRadius:'10px', border: '2px solid blue', display:'flex', flexDirection:'row'}}>
-          <img src={image} style={{height:'40px', display:'flex', marginTop:'10px', marginLeft:'10px'}}></img>
-          <p style={{color:'white', fontSize:'20px', marginLeft:'20px'}}>{text}</p>
-        </div>}
+        <StartButton setWindowOpen={setWindowOpen}/>
+          {open && <div style={{width:'300px', height:'55px',  backgroundColor: 'rgb(45, 82, 180)', marginLeft:'20px', marginTop:'2px', borderRadius:'10px', border: '2px solid blue', display:'flex', flexDirection:'row'}}>
+            <img src={image} style={{height:'40px', display:'flex', marginTop:'10px', marginLeft:'10px'}}></img>
+            <p style={{color:'white', fontSize:'20px', marginLeft:'20px'}}>{text}</p>
+          </div>}
+        <InfoButton/> 
       </div>
 
   );
