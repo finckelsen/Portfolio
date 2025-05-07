@@ -13,6 +13,10 @@ import { EffectComposer, Outline } from '@react-three/postprocessing'
 import Lights from './Lights/Lights'
 import WindowPlane from './3dComponents/WindowPlane'
 import Skiva from './3dComponents/Skiva'
+import Chair from './3dComponents/Chair'
+import { Linkedin } from './objects/Linkedin'
+import { Mail } from './objects/Mail'
+import { Github } from './objects/Github'
 
 function MyModel() {
   const gltf = useGLTF('/models/rumportfolio.glb')
@@ -42,21 +46,25 @@ function App() {
   const [showComputer, setShowComputer] = useState(false) 
   const [isDay, setIsDay] = useState(true) 
   const [hoveredObject, setHoveredObject] = useState(null)
+  const [color, setColor] = useState()
 
 
   return (
     <>
-    {(!showComputer && !showCv) && <Navbar setShowComputer={setShowComputer} controlsRef={controlsRef} setShowCv={setShowCv} setIsDay={setIsDay} isDay={isDay}/>}
+    {(!showComputer && !showCv) && <Navbar setShowComputer={setShowComputer} controlsRef={controlsRef} setShowCv={setShowCv} setIsDay={setIsDay} isDay={isDay} setColor={setColor} color={color}/>}
     {showCv && <CvLookup setShowCv={setShowCv}/>}
     {showComputer && <ComputerScreen setShowComputer={setShowComputer}/>}
 
-    <Canvas shadows camera={{ position: [0, 10, 5], fov: 50 }} >
-
+    <Canvas shadows camera={{ position: [0, 10, 5], fov: 50 }}   gl={{ toneMapping: THREE.NoToneMapping }}
+  style={{ backgroundColor: 'blue' }}>
+      <Linkedin/>
+      <Github/>
+      <Mail/>
       <Cv setShowCv={setShowCv}/>
       <Computer setShowComputer={setShowComputer}/>
-      <Lights isDay={isDay}/>
+      <Lights isDay={isDay} color={color}/>
       <DelAvRum setHoveredObject={setHoveredObject}/>
-
+      <Chair/>
       <MyModel/>
       <EffectComposer multisampling={8}>
       <Skiva/>
@@ -84,6 +92,7 @@ function App() {
         maxAzimuthAngle={Math.PI }  // Limit how far right you can rotate (+45 degrees) // Lock vertical angle to side view
         enableDamping={true}        // Smooth camera movement
         dampingFactor={0.1}   ref={controlsRef} />
+
       </Canvas>
     </>
   )
