@@ -1,31 +1,35 @@
-import React, {useState} from 'react';
-import './ComputerScreen.css'
+import React, { useEffect, useState } from 'react';
+import './ComputerScreen.css';
 import ComputerScreenPopup from './Popup/ComputerScreenPopup';
-import WindowsTaskbar from './Taskbar/WindowsTaskbar';
 import StartWindow from './Taskbar/StartWindow';
+import WindowsTaskbar from './Taskbar/WindowsTaskbar';
 
-function ComputerScreen({setShowComputer}) {
+function ComputerScreen({setShowComputer, popup}) {
   const [open, setOpen] = useState(false)
-  const [popupTitle, setPopupTitle] = useState('')
-  const imageUrl = "/windows.jpeg" // Ändra till din bildväg
+  const [popupTitle, setPopupTitle] = useState(popup)
+  const imageUrl = "/windows.jpeg" 
   const [windowOpen, setWindowOpen] = useState(false);
+
+  useEffect((popupTitle) => {
+    if(popup !== ''){
+      setOpen(true)
+    }
+  }, [popup]);
 
   return (
     <div className="computer-background-container">
-
-      
       {windowOpen && <StartWindow setOpen={setOpen} setPopupTitle={setPopupTitle} setShowComputer={setShowComputer}/>}
       <div className="controller-bar">
-        <img className="icon-button" src='/back.png' onClick={() => setShowComputer(false)}/>
+        <img className="icon-button" src='/BackIcon.png' onClick={() => setShowComputer(false)}/>
       </div>
       {open && <ComputerScreenPopup setOpen={setOpen} popupTitle={popupTitle} setPopupTitle={setPopupTitle}/>}
       <img className='windows-background' src={imageUrl}/>
-      <div className='folderContainer' style={{left:'20%'}} onClick={() => {setOpen(true); setPopupTitle('My experience')}}>
+      <div className='folderContainer' style={{left:'20%'}} onClick={() => {setOpen(true); setPopupTitle('My Experience')}}>
         <img className='folderImage' src='/folder.png'/>
         <h2>My experience</h2>
       </div>
 
-      <div className='folderContainer' style={{left:'40%'}} onClick={() => {setOpen(true); setPopupTitle('My projects')}}>
+      <div className='folderContainer' style={{left:'40%'}} onClick={() => {setOpen(true); setPopupTitle('Projects')}}>
         <img className='folderImage' src='/folder.png'/>
         <h2>Projects</h2>
       </div>
@@ -39,7 +43,6 @@ function ComputerScreen({setShowComputer}) {
           >
           <img className='folderImage' src='/mail.png'/>
           <h2>Send mail</h2>
-
           </a>
       </div>
 
@@ -52,11 +55,22 @@ function ComputerScreen({setShowComputer}) {
             }}
           >
           <img className='folderImage' src='/linkedin.png'/>
-          <h2>Linkedin</h2>
-
+          <h2>LinkedIn</h2>
           </a>
       </div>
 
+      <div className='folderContainer' style={{left:' 40%', top:'80%'}}>
+        <a
+            href="https://github.com/finckelsen/"
+            target="_blank"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+          <img className='folderImage' src='/github.png'/>
+          <h2>Github</h2>
+          </a>
+      </div>
 
       <div className='folderContainer' style={{left:'60%'}} onClick={() => {setOpen(true); setPopupTitle('Rick Roll')}}>
         <img className='folderImage' src='/internetexplorer.png'/>

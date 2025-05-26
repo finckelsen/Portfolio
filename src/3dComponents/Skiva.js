@@ -18,7 +18,7 @@ function Skiva() {
   return (
     <group
       ref={groupRef}
-      position={[0.75, 1.7, 2.9]}
+      position={[0.75, -0.3, 2.9]}
       scale={3.55}
       rotation={[0, Math.PI / 2, 0]}
     >

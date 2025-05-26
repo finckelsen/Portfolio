@@ -7,7 +7,7 @@ function WindowPlane({isDay}) {
     const viewTexture = useTexture(texturePath)
 
     return (
-      <mesh position={[-1, 2, 5]} castShadow={false} receiveShadow={false}>
+      <mesh position={[-1, 0, 5]} castShadow={false} receiveShadow={false}>
         <planeGeometry args={[5.3, 3]} />
         <meshPhysicalMaterial
           map={viewTexture}

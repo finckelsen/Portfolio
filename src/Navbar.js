@@ -3,8 +3,9 @@ import ComputerText from './ComputerText';
 import CvText from './CvText';
 import { ChromePicker } from 'react-color'
 import { useState, useEffect, useRef } from 'react';
+import ContactText from './ContactText';
 
-function Navbar({ setShowComputer, controlsRef, setShowCv, setIsDay, setColor, color }) {
+function Navbar({ setShowComputer, controlsRef, setShowCv, setPopup, setColor, color, setContactOpen, setPopupOpen }) {
   const [showPicker, setShowPicker] = useState(false)
   const pickerRef = useRef()
 
@@ -23,10 +24,16 @@ function Navbar({ setShowComputer, controlsRef, setShowCv, setIsDay, setColor, c
     <nav>
       <div className='nav-content'>
         <div className='nav-content-cell'>
-          <ComputerText setShowComputer={setShowComputer} controlsRef={controlsRef}/>
+          <ComputerText setShowComputer={setShowComputer} controlsRef={controlsRef} name={"My Experience"} setPopup={setPopup}/>
         </div>
         <div className='nav-content-cell'>
           <CvText setShowCv={setShowCv} controlsRef={controlsRef}/>
+        </div>
+        <div className='nav-content-cell'>
+          <ContactText setContactOpen={setContactOpen}/>
+        </div>
+        <div className='nav-content-cell'>
+          <ComputerText setShowComputer={setShowComputer} controlsRef={controlsRef} name={"Projects"} setPopup={setPopup}/>
         </div>
         <div className='nav-content-cell' style={{ position: 'relative' }} ref={pickerRef}>
 

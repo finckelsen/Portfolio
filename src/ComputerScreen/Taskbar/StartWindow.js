@@ -1,18 +1,10 @@
-import React, { useState } from 'react';
-import './StartWindow.css'
+import React from 'react';
+import './StartWindow.css';
 
 function StartWindow({setOpen, setPopupTitle, setShowComputer}) {
-  const [showShutdown, setShutdown] = useState(false)
-
-
+  
   return (
-
     <div className='startWindow'>
-          {showShutdown && (
-          <div className="crt-overlay" onAnimationEnd={() => setShowComputer(false)}>
-            <div className="crt-flash-line"></div>
-          </div>    
-        )}
       <div className='startWindowGrid'>
         <div className='startWindowTop'>
           <img src="/avatar.png" className='avatar' />
@@ -26,7 +18,7 @@ function StartWindow({setOpen, setPopupTitle, setShowComputer}) {
               <div className='startWindowMidGridRow' onClick={() => {setOpen(true); setPopupTitle('Rick Roll')}}>
                   <div className='startWindowMidGridRowContent'>
                     <img src='internetexplorer.png'/>
-                    <h3>Internet Explorer</h3>
+                    <h4>Internet Explorer</h4>
                   </div>
               </div>
               <div className='startWindowMidGridRow' >
@@ -36,23 +28,44 @@ function StartWindow({setOpen, setPopupTitle, setShowComputer}) {
                 >
                   <div className='startWindowMidGridRowContent'>
                     <img src='mail.png'/>
-                    <h3>E-mail</h3>
+                    <h4>E-mail</h4>
                   </div>
                 </a>
               </div>
-
+              <div className='startWindowMidGridRow' >
+                <a
+                  href="https://www.linkedin.com/in/casper-finckelsen" target='_blank'
+                  style={{textDecoration:'none', color:'black'}}
+                >
+                  <div className='startWindowMidGridRowContent'>
+                    <img src='linkedin.png'/>
+                    <h4>LinkedIn</h4>
+                  </div>
+                </a>
+              </div>
+              <div className='startWindowMidGridRow' >
+                <a
+                  href="https://github.com/finckelsen/" target='_blank'
+                  style={{textDecoration:'none', color:'black'}}
+                >
+                  <div className='startWindowMidGridRowContent'>
+                    <img src='github.png'/>
+                    <h4>Github</h4>
+                  </div>
+                </a>
+              </div>
             </div>
             <div className='startWindowMidGridContainer' style={{backgroundColor:'rgb(213,227,248)'}}>
               <div className='startWindowMidGridRow' onClick={() => {setOpen(true); setPopupTitle('Folders')}}>
                 <div className='startWindowMidGridRowContent'>
                   <img src='folder.png'/>
-                  <h3>All folders</h3>
+                  <h4>All folders</h4>
                 </div>
               </div>
               <div className='startWindowMidGridRow' onClick={() => {setOpen(true); setPopupTitle('Notes')}}>
                 <div className='startWindowMidGridRowContent'>
                   <img src='notes.png'/>
-                  <h3>Notes</h3>
+                  <h4>Notes</h4>
                 </div>
               </div>
             </div>
@@ -60,8 +73,7 @@ function StartWindow({setOpen, setPopupTitle, setShowComputer}) {
         </div>
         <div className='startWindowBottom'>
           <div>
-            <img src='shutdown.png' style={{height:'50px', position:'absolute', right:'20px', bottom:'70px'}} onClick={() => setShutdown(true)}/> 
-
+            <img src='shutdown.png' style={{height:'40px', bottom:'50px',position:'absolute', right:'20px'}} onClick={() => setShowComputer(false)}/> 
           </div>
         </div>
       </div>

@@ -20,8 +20,8 @@ function Chair() {
   return (
     <group
       ref={groupRef}
-      position={[-1.7, 1.7, -1.6]}
-      scale={1.3}
+      position={[-1.7, -0.3, -1.6]}
+      scale={1.2}
       rotation={[0, 0, 0]}
     >
       <primitive object={scene} />

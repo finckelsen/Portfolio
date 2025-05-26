@@ -7,6 +7,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2{
+  font-family: 'Jockey One', sans-serif;
+}
+
+h3, h4, p{
+  font-family: 'Kodchasan', sans-serif;
+}
+
+html, body, #root, canvas {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

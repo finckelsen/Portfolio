@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
-import './ComputerScreenPopup.css'
+import React from 'react';
+import './ComputerScreenPopup.css';
 import Experience from './PopupContent/Experience';
-import Projects from './PopupContent/Projects';
-import RickRoll from './PopupContent/RickRoll';
 import Folders from './PopupContent/Folders';
 import Notes from './PopupContent/Notes';
+import Projects from './PopupContent/Projects';
+import RickRoll from './PopupContent/RickRoll';
 
 function getContentByTitle(title, setPopupTitle) {
   switch (title) {
-    case 'My experience':
+    case 'My Experience':
       return <Experience/>;
-    case 'My projects':
+    case 'Projects':
       return <Projects/>;
     case 'Rick Roll':
       return <RickRoll/>;
@@ -22,7 +22,6 @@ function getContentByTitle(title, setPopupTitle) {
       return <p>Standardinnehåll</p>;
   }
 }
-
 
 function ComputerScreenPopup({setOpen, popupTitle, setPopupTitle}) {
   return (

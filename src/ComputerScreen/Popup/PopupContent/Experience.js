@@ -1,7 +1,4 @@
-import React, {useState} from 'react';
-
-
-
+import React, { useState } from 'react';
 
 function Experience() {
     const [openIndex, setOpenIndex] = useState(null);
@@ -10,9 +7,9 @@ function Experience() {
       {
         image: 'kodiprint.png',
         company: 'kodiprint AB',
-        title: 'Co-founder and CEO',
+        title: 'Co-founder',
         date: 'Fall 24-Now',
-        description: 'Building an AI printing platform for smart photo products.',
+        description: 'Built a company for 3',
         titleExp: 'Managing and building the platform',
         skills: 'React, Vue, Angular'
       },
@@ -34,15 +31,17 @@ function Experience() {
         titleExp: 'Managing and building the platform',
         skills: 'Java, React, Kafka'
       },
+
       {
         image: 'UMU.png',
         company: 'Umeå University',
-        title: 'Tutor - Data structures and Algorithms',
-        date: 'Spring 24',
-        description: 'Helping students understand algorithms and coding concepts.',
-        titleExp: 'Managing and building the platform',
-        skills: 'React, Vue, Angular'
+        title: 'Tutor – Data Structures and Algorithms',
+        date: 'Spring 2024',
+        description: 'Provided academic support to students by explaining algorithmic concepts and helping them improve their coding skills. Responsible for tutoring sessions and assessing lab assignments.',
+        titleExp: 'Tutoring and grading student labs',
+        skills: 'Python, Algorithms, Problem Solving'
       },
+
       {
         image: 'x-logga.png',
         company: 'bXhaled Sport AB',
@@ -57,9 +56,9 @@ function Experience() {
         company: 'Softhouse Neava',
         title: 'UX and frontend developer',
         date: 'Summer 23',
-        description: 'Designed and built web interfaces with a focus on usability.',
-        titleExp: 'Managing and building the platform',
-        skills: 'React, Vue, Angular'
+        description: 'Designed and built web interface for their product configurator, with a focus on usability.',
+        titleExp: 'UX-design',
+        skills: 'Figma, Angular'
       },
       {
         image: 'umu.png',
@@ -68,7 +67,7 @@ function Experience() {
         date: 'Summer 23',
         description: 'Developed APIs and backend logic for university projects.',
         titleExp: 'Managing and building the platform',
-        skills: 'React, Vue, Angular'
+        skills: 'Pythonr'
       }
     ];
     const toggleDropdown = (index) => {
@@ -81,18 +80,18 @@ function Experience() {
             <div key={index}>
               <div className='popup-content-row' onClick={() => toggleDropdown(index)}>
                 <img src={exp.image} />
-                <h1>{exp.title}</h1>
-                <h1 className='date'>{exp.date}</h1>
-                <h1 className='arrow'>{openIndex === index ? '−' : '+'}</h1>
+                <h3>{exp.title}</h3>
+                <h3 className='date'>{exp.date}</h3>
+                <h3 className='arrow'>{openIndex === index ? '−' : '+'}</h3>
               </div>
               {openIndex === index && (
                 <div className="popup-dropdown-content">
                     <div className="popup-dropdown-content-company">
-                        <h1 style={{color:'blue'}}>{exp.company}</h1>
+                        <h2 style={{color:'blue'}}>{exp.company}</h2>
                     </div>
                     <div className="popup-dropdown-content-title">
-                        <h2>{exp.titleExp}</h2>
-                        <h2 style={{marginLeft:'50px', color:'rgb(62, 62, 62)'}}>{exp.skills}</h2>
+                        <h3>{exp.titleExp}</h3>
+                        <h3 style={{marginLeft:'50px', color:'rgb(62, 62, 62)'}}>{exp.skills}</h3>
                     </div>
                     <div className="popup-dropdown-content-description">
                         <p>{exp.description}</p>

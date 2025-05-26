@@ -4,18 +4,18 @@ import './PopupContent.css';
 function Notes({ setPopupTitle }) {
   const [notes, setNotes] = useState([
     {
-      title: "My dreams",
-      text: "I want to become an engineer and solve problems! I love math and making the world a better place /Casper 6 years old",
-      lastModified: new Date('2006-05-04T15:30:00')
-    },
-    {
       title: "vad i hel*****",
       text: "Hur fan centrerar jag en div???",
       lastModified: new Date()
+    },
+    {
+      title: "My dreams",
+      text: "I want to become an engineer and solve problems! I love math and making the world a better place /Casper 6 years old",
+      lastModified: new Date('2006-05-04T15:30:00')
     }
   ]);
 
-  const [activeNoteIndex, setActiveNoteIndex] = useState(0);
+  const [activeNoteIndex, setActiveNoteIndex] = useState(1);
 
   const handleTextChange = (e) => {
     const updatedNotes = [...notes];
@@ -44,7 +44,7 @@ function Notes({ setPopupTitle }) {
         {notes.map((note, index) => (
           <div
             key={index}
-            className='notes-container-row'
+            className={`notes-container-row ${activeNoteIndex === index ? 'active' : ''}`}
             onClick={() => setActiveNoteIndex(index)}
             style={{display:'flex', flexDirection:'column'}}
           >

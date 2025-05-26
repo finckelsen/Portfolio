@@ -1,4 +1,5 @@
 .computer-background-container{
+  top: 0;
   position:absolute;
   width: 100vw;
   height: 100vh;
@@ -24,12 +25,12 @@
 }
 
 .icon-button {
-  width: 10vw;
-  cursor: url('../cursor.svg') 12 12, auto;
+  width: 8vw;
 }
 
 .icon-button:hover {
   background-color: rgba(0, 0, 0, 0.2);
+  cursor: url('../cursor.svg') 12 12, auto;
 }
 
 .folderContainer {
@@ -41,6 +42,14 @@
   cursor: url('../cursor.svg') 12 12, auto;
 }
 
+.windowsTaskbarContainer{
+  cursor: url('../pointer.svg') 12 12, auto !important;
+}
+
+.folderContainer a{
+  cursor: url('../cursor.svg') 12 12, auto;
+}
+
 .folderContainer h2{
   text-align: center;
   color: white;
@@ -48,7 +57,7 @@
 }
 
 .folderImage{
-  width: 200px;
+  width: 140px;
 }
 
 .folderContainer:hover {

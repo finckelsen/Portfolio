@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function InfoButton() {
+  
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -20,7 +21,7 @@ function InfoButton() {
   return (
     <div
       style={{
-        height: '60px',
+        height: '50px',
         width: '200px',
         background: 'linear-gradient(to top, #2a6db9, #529ae7)',
         position: 'absolute',
@@ -30,7 +31,7 @@ function InfoButton() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: '24px',
+        fontSize: '20px',
         fontFamily: 'sans-serif'
       }}
     >

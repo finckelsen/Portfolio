@@ -1,8 +1,8 @@
 .startWindow{
   position: absolute;
-  height: 800px;
+  height: 600px;
   bottom: 10px;
-  width: 600px;
+  width: 500px;
   background-color: rgb(255, 255, 255);
   z-index: 3;
 }
@@ -18,7 +18,7 @@
   align-items: center;
   padding: 10px;
   background: linear-gradient(to bottom, #3683d6, #2a6db9);
-  height: 100px;
+  height: 80px;
   border-radius: 5px 5px 0 0;
   color: white;
   font-weight: bold;
@@ -42,18 +42,18 @@
 .startWindowMid{
   width: 100%;
   background-color: rgb(254, 254, 254);
-  height: 550px;
+  height: 400px;
 }
 
 .startWindowBottom{
   width: 100%;
   background: linear-gradient(to bottom, #3683d6, #204b7c);
-  height: 80px;
+  height: 60px;
 }
 
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 6px;
   border: 3px solid rgba(255, 255, 255, 0.4);
   box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.8),
@@ -71,7 +71,7 @@
 
 .startWindowMidGridContainer{
   width: 100%;
-  height: 550px
+  height: 400px
 }
 
 .startWindowMidGridRow{
@@ -89,71 +89,7 @@
 }
 
 .startWindowMidGridRowContent img{
-  height: 60px;
+  height: 50px;
   margin-right: 10px;
 }
 
-/* CRTShutdown.css */
-
-.crt-overlay {
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  background: black;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  /*animation: screenOff 2.2s ease-out forwards;*/
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* Vit linje i mitten */
-.crt-flash-line {
-  width: 100%;
-  height: 2px;
-  background: white;
-  opacity: 1;
-  /*animation: flashLine 1.2s ease-out forwards;*/
-}
-
-
-@keyframes screenOff {
-  0% {
-
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-
-
-/* Linjen försvinner snabbt */
-@keyframes flashLine {
-  50% {
-    transform: scaleY(0.3);
-    opacity: 1;
-    height: 2px;
-  }
-  75% {
-    transform: scaleY(0.1);
-    height: 200px;
-    opacity: 1;
-  }
-  100% {
-    transform: scaleY(0);
-    height: 0;
-    opacity: 0;
-  }
-}

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './PopupContent.css'
 
-
 function RickRoll() {
   return (
     <div className="popup-content">

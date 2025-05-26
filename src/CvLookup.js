@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import './CvLookup.css'
+import { useCamera } from './animations/CameraProvider';
 
 function CvLookup({setShowCv}) {
+  const { resetCamera } = useCamera()
   const [open, setOpen] = useState(false)
   const imageUrl = "/cv.png" // Ändra till din bildväg
 
@@ -12,11 +14,21 @@ function CvLookup({setShowCv}) {
     link.click()
   }
 
+  const handleClose = () => {
+    resetCamera()
+    setShowCv(false)
+  }
+
   return (
-    <div className="image-container">
+    <div className="image-container"   onClick={(e) => {
+      if (e.target === e.currentTarget) {
+            handleClose()
+      }
+    }}>
+
       <div className="controller-bar">
-        <button className="icon-button" onClick={() => setShowCv(false)}>✕</button>
-        <button className="icon-button" onClick={handleDownload}>⬇</button>
+        <img src="/BackIcon.png" className="icon-button-3d" onClick={handleClose}/>
+        <img src="DownloadIcon.png" className="icon-button-3d" onClick={handleDownload}/>
       </div>
 
       <div className='controller-container'>
