@@ -5,9 +5,7 @@
   height: 100vh;
   background-color: rgb(0, 0, 0, 0.5);
   z-index: 4;
-  cursor: url('../pointer.svg') 12 12, auto;
 }
-
 
 .windows-background{
   width: 100vw;
@@ -30,7 +28,6 @@
 
 .icon-button:hover {
   background-color: rgba(0, 0, 0, 0.2);
-  cursor: url('../cursor.svg') 12 12, auto;
 }
 
 .folderContainer {
@@ -39,15 +36,7 @@
 
   transform: translate(-50%, -50%);
   z-index: 2;
-  cursor: url('../cursor.svg') 12 12, auto;
-}
 
-.windowsTaskbarContainer{
-  cursor: url('../pointer.svg') 12 12, auto !important;
-}
-
-.folderContainer a{
-  cursor: url('../cursor.svg') 12 12, auto;
 }
 
 .folderContainer h2{

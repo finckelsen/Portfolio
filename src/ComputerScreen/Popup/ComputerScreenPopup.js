@@ -23,14 +23,13 @@ function getContentByTitle(title, setPopupTitle) {
   }
 }
 
-function ComputerScreenPopup({setOpen, popupTitle, setPopupTitle}) {
+function ComputerScreenPopup({setOpen, popupTitle, setPopupTitle, fullScreen, setFullScreen}) {
   return (
-    <div className="popup-container">
+    <div className={`popup-container ${fullScreen ? 'full' : ''}`}>
       <div className='popup-bar'>
-        <h2>{popupTitle}</h2>
-        <div className='close-button' onClick={() => setOpen(false)}>
-          x
-        </div>
+        <h3>{popupTitle}</h3>
+        <img style={{right:'50px'}}src={'/fullscreen.jpg'}className='popup-button' onClick={() => setFullScreen(!fullScreen)}/>
+        <img src={'/close.jpg'}className='popup-button' onClick={() => setOpen(false)}/>
       </div>
       <>
         {getContentByTitle(popupTitle, setPopupTitle)}

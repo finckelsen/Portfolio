@@ -9,6 +9,7 @@ function ComputerScreen({setShowComputer, popup}) {
   const [popupTitle, setPopupTitle] = useState(popup)
   const imageUrl = "/windows.jpeg" 
   const [windowOpen, setWindowOpen] = useState(false);
+  const [fullScreen, setFullScreen] = useState(false);
 
   useEffect((popupTitle) => {
     if(popup !== ''){
@@ -22,7 +23,7 @@ function ComputerScreen({setShowComputer, popup}) {
       <div className="controller-bar">
         <img className="icon-button" src='/BackIcon.png' onClick={() => setShowComputer(false)}/>
       </div>
-      {open && <ComputerScreenPopup setOpen={setOpen} popupTitle={popupTitle} setPopupTitle={setPopupTitle}/>}
+      {open && <ComputerScreenPopup setOpen={setOpen} popupTitle={popupTitle} setPopupTitle={setPopupTitle} fullScreen={fullScreen} setFullScreen={setFullScreen}/>}
       <img className='windows-background' src={imageUrl}/>
       <div className='folderContainer' style={{left:'20%'}} onClick={() => {setOpen(true); setPopupTitle('My Experience')}}>
         <img className='folderImage' src='/folder.png'/>

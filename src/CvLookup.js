@@ -5,7 +5,7 @@ import { useCamera } from './animations/CameraProvider';
 function CvLookup({setShowCv}) {
   const { resetCamera } = useCamera()
   const [open, setOpen] = useState(false)
-  const imageUrl = "/cv.png" // Ändra till din bildväg
+  const imageUrl = "/cv.jpg" // Ändra till din bildväg
 
   const handleDownload = () => {
     const link = document.createElement("a")

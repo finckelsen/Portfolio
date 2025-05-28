@@ -18,7 +18,13 @@ function App() {
   const [canvasLoaded, setCanvasLoaded] = useState(false);
   const [showShutdown, setshowShutdown] = useState(false);
   const { resetCamera } = useCamera()
-  console.log(popup)
+
+  useEffect(() => {
+    if (contactOpen && (showCv || showComputer)) {
+      setContactOpen(false);
+    }
+  }, [contactOpen, showCv, showComputer]);
+
   const handleCloseComputer = () => {
     setShowComputer(false);
     setshowShutdown(true)

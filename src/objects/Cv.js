@@ -8,7 +8,7 @@ import * as THREE from 'three'
 
 export function Cv({setShowCv, controlsRef}) {
   const [hovered, setHovered] = useState(false)
-  const texture = useTexture('cv.png') // Ersätt med din bildväg
+  const texture = useTexture('cv.jpg') // Ersätt med din bildväg
   const { setCameraTarget } = useCamera()
 
   const handleClick = () => {

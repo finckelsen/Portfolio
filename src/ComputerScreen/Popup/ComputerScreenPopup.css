@@ -10,34 +10,36 @@
   border: 4px solid #3a6ea5;
 }
 
+.popup-container.full{
+  width: 100vw;
+  height: calc(100% - 55px);
+  position: absolute;
+  left: 0%;
+  top: 0%;
+}
+
 .popup-bar{
   width: 100%;
-  height: 80px;
+  height: 50px;
   background: linear-gradient(to bottom, #0a64ad 0%, #3a9bdc 50%, #61b4e4 100%);
 }
 
-.popup-bar h2{
+.popup-bar h3{
   position: absolute;
   margin-top: 0;
-  padding-top: 25px;
+  padding-top: 10px;
   color: white;
   left: 40px;
 }
 
-.close-button{
+.popup-button{
   position: absolute;
   margin-top: 0;
-  padding: 20px;
-  margin-top: 10px;
-  color: white;
-  background-color: rgb(176, 122, 122);
-  right: 10px;
-  border-radius: 5px;
-  border: 10px whea;
-  font-size: 20px;
-  font-weight: bold;
+  padding: 5px;
+  right: 0px;
+  width: 40px;
 }
 
-.close-button:hover{
-  background-color: rgb(134, 48, 48);
+.popup-button:hover{
+  filter: brightness(0.7);
 }

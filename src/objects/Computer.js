@@ -28,18 +28,11 @@ export function Computer({ setShowComputer }) {
     RectAreaLightUniformsLib.init()
   }, [])
 
-  // Skapa ljuset med useMemo för att undvika ny instans varje render
-  const light = useMemo(() => {
-    const rectLight = new RectAreaLight(0xa6d6ff, 20, 1.8, 0.6)
-    rectLight.position.set(-3.5, 2.82, -1.67) // bakom skärmen
-    rectLight.rotation.set(0, -Math.PI / 2, 0) // riktad mot skärmen
-    return rectLight
-  }, [])
 
   return (
     <>
       {/* Ljus bakom skärmen */}
-      <primitive object={light} />
+
 
       {/* Skärmen */}
       <mesh
@@ -53,11 +46,11 @@ export function Computer({ setShowComputer }) {
         <meshPhysicalMaterial
           map={texture}
           roughness={0}
-          transmission={1}
+          transmission={0.01}
           thickness={0.05}
           transparent
-          emissive="white"
-          emissiveIntensity={0.01}
+          emissive="blue"
+          emissiveIntensity={0.02}
         />
         {hovered && (
           <Edges scale={1.05} color="white" threshold={15} />

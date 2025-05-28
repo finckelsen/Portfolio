@@ -9,7 +9,7 @@ function Experience() {
         company: 'kodiprint AB',
         title: 'Co-founder',
         date: 'Fall 24-Now',
-        description: 'Built a company for 3',
+        description: 'Built a family business were we are supplier of merch to local sports teams. The shopify store is currently being built.',
         titleExp: 'Managing and building the platform',
         skills: 'React, Vue, Angular'
       },
@@ -65,9 +65,9 @@ function Experience() {
         company: 'Umeå University | Northstat',
         title: 'Backend developer',
         date: 'Summer 23',
-        description: 'Developed APIs and backend logic for university projects.',
+        description: 'Developed APIs and backend logic for university projects. I created a product that could be sent to Swedish regions were ambulance data was de-personalised and processed for analysis.',
         titleExp: 'Managing and building the platform',
-        skills: 'Pythonr'
+        skills: 'Python, Numpy, Pandas'
       }
     ];
     const toggleDropdown = (index) => {
@@ -81,20 +81,22 @@ function Experience() {
               <div className='popup-content-row' onClick={() => toggleDropdown(index)}>
                 <img src={exp.image} />
                 <h3>{exp.title}</h3>
-                <h3 className='date'>{exp.date}</h3>
-                <h3 className='arrow'>{openIndex === index ? '−' : '+'}</h3>
+
+                <h3 className={`arrow ${openIndex === index ? 'open' : ''}`}>{'>'}</h3>
               </div>
               {openIndex === index && (
                 <div className="popup-dropdown-content">
-                    <div className="popup-dropdown-content-company">
-                        <h2 style={{color:'blue'}}>{exp.company}</h2>
-                    </div>
-                    <div className="popup-dropdown-content-title">
-                        <h3>{exp.titleExp}</h3>
-                        <h3 style={{marginLeft:'50px', color:'rgb(62, 62, 62)'}}>{exp.skills}</h3>
-                    </div>
-                    <div className="popup-dropdown-content-description">
-                        <p>{exp.description}</p>
+                    <div className="popup-dropdown-content-container">
+                      <div className="popup-dropdown-content-company">
+                          <h2 style={{color:'blue'}}>{exp.company}</h2>
+                      </div>
+                      <div className="popup-dropdown-content-title">
+                          <h3>{exp.date}</h3>
+                          <h3 style={{marginLeft:'50px', color:'rgb(62, 62, 62)'}}>{exp.skills}</h3>
+                      </div>
+                      <div className="popup-dropdown-content-description">
+                          <p>{exp.description}</p>
+                      </div>
                     </div>
                 </div>
               )}

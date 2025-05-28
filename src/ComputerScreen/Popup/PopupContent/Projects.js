@@ -10,7 +10,7 @@ function Projects() {
       company: 'By myself',
       title: 'This portfolio',
       date: 'Spring 25',
-      description: "I built an interactive 3D portfolio website to showcase my work in a more engaging and immersive way. Using Three.js for the 3D rendering and Blender for modeling, I created a smooth and animated scene that reflects my personality and design style. The website is powered by React and Next.js, enabling fast performance, server-side rendering, and seamless navigation. This project challenged me to combine creative design with technical implementation – from 3D asset optimization to handling shaders, camera logic, and responsiveness across devices. It's more than just a portfolio; it’s a digital experience that demonstrates my front-end skills, aesthetic eye, and passion for modern web technologies.",
+      description: "I built an interactive 3D portfolio website to showcase my work in a more engaging and immersive way. Using Three.js for the 3D rendering and Blender for modeling. The website is powered by React and Next.js (soon), enabling fast performance, server-side rendering, and seamless navigation. This project challenged me to combine creative design with technical implementation – from 3D asset optimization to handling shaders and camera logic. It's more than just a portfolio; it’s a digital experience that demonstrates my front-end skills, aesthetic eye, and passion for modern web technologies.",
       titleExp: '3d portfolio',
       skills: 'React, ThreeJS, NextJS, Blender'
     },
@@ -33,6 +33,15 @@ function Projects() {
       skills: 'Unity, C#, SQL Database, REST API (ASP.NET Core)',
       video:'./videos/MemoryAR.mp4'
     },
+    {
+      image: 'x-logga.png',
+      company: 'bXhaled Sport',
+      title: 'Business website',
+      date: 'Fall 23',
+      description: "A website for a family business. In the process of developing a product configurator and headless store connected to shopify.",
+      titleExp: 'AR - Memory Game',
+      skills: 'React',
+    },
   ];
 
   const toggleDropdown = (index) => {
@@ -46,28 +55,30 @@ function Projects() {
           <div className='popup-content-row' onClick={() => toggleDropdown(index)}>
             <img src={exp.image} />
             <h3>{exp.title}</h3>
-            <h3 className='date'>{exp.date}</h3>
-            <h3 className='arrow'>{openIndex === index ? '−' : '+'}</h3>
+
+            <h3 className={`arrow ${openIndex === index ? 'open' : ''}`}>{'>'}</h3>
           </div>
           {openIndex === index && (
             <div className="popup-dropdown-content">
-                <div className="popup-dropdown-content-company">
-                    <h2 style={{color:'blue'}}>{exp.company}</h2>
+                <div className="popup-dropdown-content-container">
+                  <div className="popup-dropdown-content-company">
+                      <h2 style={{color:'blue'}}>{exp.company}</h2>
+                  </div>
+                  <div className="popup-dropdown-content-title">
+                      <h3>{exp.date}</h3>
+                      <h3 style={{marginLeft:'50px', color:'rgb(62, 62, 62)'}}>{exp.skills}</h3>
+                  </div>
+                  <div className="popup-dropdown-content-description">
+                      <p>{exp.description}</p>
+                  </div>
+                  {exp.video && (
+                  <div className="popup-dropdown-content-video" style={{ marginTop: '20px' }}>
+                    <video controls>
+                      <source src={exp.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>)}
                 </div>
-                <div className="popup-dropdown-content-title">
-                    <h3>{exp.titleExp}</h3>
-                    <h3 style={{marginLeft:'50px', color:'rgb(62, 62, 62)'}}>{exp.skills}</h3>
-                </div>
-                <div className="popup-dropdown-content-description">
-                    <p>{exp.description}</p>
-                </div>
-                {exp.video && (
-                <div className="popup-dropdown-content-video" style={{ marginTop: '20px' }}>
-                  <video controls>
-                    <source src={exp.video} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>)}
             </div>
           )}
         </div>
