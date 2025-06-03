@@ -2,6 +2,7 @@ import { OrbitControls, Text, useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { EffectComposer, Outline } from '@react-three/postprocessing'
 import { useEffect, useRef, useState } from 'react'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import * as THREE from 'three'
 import Chair from './3dComponents/Chair'
 import Skiva from './3dComponents/Skiva'
@@ -16,8 +17,19 @@ import { Github } from './objects/Github'
 import { Linkedin } from './objects/Linkedin'
 import { Mail } from './objects/Mail'
 
+function useDracoGLTF(path) {
+  // Setup DracoLoader en gång
+  const dracoLoader = new DRACOLoader()
+  dracoLoader.setDecoderPath('/draco/')  // Mappen där dina draco-filer (js, wasm) ligger
+
+  // Passa in dracoLoader till useGLTF
+  return useGLTF(path, loader => {
+    loader.setDRACOLoader(dracoLoader)
+  })
+}
+
 function MyModel() {
-  const gltf = useGLTF('/models/roomportfolio.glb')
+  const gltf = useDracoGLTF('/models/compressed_1748990933839_rumportfolio2.glb')
   return(
 
   <>
@@ -26,13 +38,14 @@ function MyModel() {
 
 
     >
-      <primitive object={gltf.scene} />
+      <primitive object={gltf.scene} matrixAutoUpdate={false}/>
     </group>
   </>
     )
 }
+
 function DelAvRum() {
-  const { scene } = useGLTF('/models/partofRoom.glb')
+  const gltf = useDracoGLTF('/models/compressed_partofroom.glb')
 
   return (
     <>
@@ -41,7 +54,7 @@ function DelAvRum() {
         scale={3}
         rotation={[0, Math.PI / 2, 0]}
       >
-        <primitive object={scene} />
+        <primitive object={gltf.scene} matrixAutoUpdate={false}/>
       </group>
     </>
   )
@@ -67,8 +80,10 @@ function CanvasComponent({contactOpen, color, setShowCv, setShowComputer, setCon
 
 
   return (
+    
 
-        <Canvas shadows camera={{ position: [20, 20, -10], fov: 140}} gl={{ toneMapping: THREE.NoToneMapping }} style={{position:'absolute', top:'0'}}>
+      <Canvas dpr={[1.3, 1.7]}   onCreated={({ gl }) => {
+        }} camera={{ position: [20, 20, -10], fov: 60}} gl={{ toneMapping: THREE.NoToneMapping }} style={{position:'absolute', top:'0'}}>
           <Linkedin contactOpen={contactOpen} setContactOpen={setContactOpen}/>
           <Github contactOpen={contactOpen} setContactOpen={setContactOpen}/>
           <Mail contactOpen={contactOpen} setContactOpen={setContactOpen}/>
@@ -78,7 +93,7 @@ function CanvasComponent({contactOpen, color, setShowCv, setShowComputer, setCon
           <DelAvRum setHoveredObject={setHoveredObject}/>
           <Chair/>
           <MyModel/>
-          <EffectComposer multisampling={8}>
+          <EffectComposer multisampling={1}>
           <Skiva/>
           <WindowPlane />
         {hoveredObject && (
